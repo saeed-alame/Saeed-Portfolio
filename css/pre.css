@@ -1,0 +1,687 @@
+/* =========================================================
+   preloader.css  -  intro screen for index.html
+   ========================================================= */
+
+/* the real page waits (its animations are paused) until the doors open */
+body.is-loading * {
+  animation-play-state: paused;
+}
+
+#preloader,
+#preloader * {
+  animation-play-state: running !important;
+}
+
+#preloader {
+  --emblem: min(250px, 50vw, 27vh);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  overflow: hidden;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#preloader,
+#preloader *,
+#preloader *::before,
+#preloader *::after {
+  box-sizing: border-box;
+}
+
+#preloader.split {
+  pointer-events: none;
+}
+
+#preloader button {
+  font-family: inherit;
+}
+
+/* ---------- the two doors (top half + bottom half of one big picture) ---------- */
+.pre-door {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 50%, midnightblue, transparent 80%),
+    radial-gradient(circle at 10% 15%, indigo, transparent 40%),
+    radial-gradient(circle at 92% 88%, darkslateblue, transparent 42%),
+    black;
+  transition: transform 1.1s cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+}
+
+.pre-door-top    { clip-path: inset(0 0 50% 0); }
+.pre-door-bottom { clip-path: inset(50% 0 0 0); }
+
+/* blueprint grid */
+.pre-door::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    repeating-linear-gradient(0deg, white 0, white 1px, transparent 1px, transparent 56px),
+    repeating-linear-gradient(90deg, white 0, white 1px, transparent 1px, transparent 56px);
+  opacity: 0.07;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 5%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, black 5%, transparent 72%);
+  animation: pre-grid-pulse 4s ease-in-out infinite;
+}
+
+/* glowing line where the doors meet (shows when opening) */
+.pre-door::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), white, var(--accent3), transparent);
+  box-shadow: 0 0 24px var(--accent), 0 0 70px var(--accent3);
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 0.6s ease 0.3s, opacity 0.3s ease 0.3s;
+}
+
+.pre-door-top::after    { top: calc(50% - 3px); }
+.pre-door-bottom::after { top: 50%; }
+
+#preloader.opening .pre-door::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+#preloader.split .pre-door::after {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#preloader.split .pre-door-top    { transform: translateY(-52%); }
+#preloader.split .pre-door-bottom { transform: translateY(52%); }
+
+/* ---------- mouse light + star canvas ---------- */
+.pre-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 560px;
+  height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent), transparent 65%);
+  opacity: 0.2;
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.pre-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+#preloader.split .pre-glow,
+#preloader.split .pre-canvas {
+  opacity: 0;
+}
+
+/* ---------- everything in the middle ---------- */
+.pre-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  pointer-events: none;
+  transition: transform 0.9s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.6s ease 0.15s, filter 0.9s ease;
+}
+
+#preloader.opening .pre-content {
+  transform: scale(1.8);
+  opacity: 0;
+  filter: blur(6px);
+}
+
+/* ---------- emblem: progress ring + spinning logo + orbits ---------- */
+.pre-emblem {
+  position: relative;
+  width: var(--emblem);
+  height: var(--emblem);
+  margin: calc(var(--emblem) * 0.24 + 20px) 0 calc(var(--emblem) * 0.24 + 34px);
+  animation: pre-rise 1s ease 0.1s backwards;
+}
+
+.pre-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pre-stop-1 { stop-color: var(--accent); }
+.pre-stop-2 { stop-color: var(--accent2); }
+.pre-stop-3 { stop-color: var(--accent3); }
+
+.pre-ring-track {
+  fill: none;
+  stroke: dimgray;
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+
+.pre-ring-fill {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+
+.pre-ring-head {
+  fill: white;
+  filter: drop-shadow(0 0 6px white) drop-shadow(0 0 14px var(--accent));
+  transition: opacity 0.4s ease;
+}
+
+#preloader.ready .pre-ring-head {
+  opacity: 0;
+}
+
+.pre-logo {
+  position: absolute;
+  top: 26%;
+  left: 26%;
+  width: 48%;
+  height: 48%;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent), var(--accent2), var(--accent3), gold, var(--accent));
+  box-shadow: 0 0 30px var(--accent2);
+  animation: pre-spin 4s linear infinite;
+}
+
+.pre-logo::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  border-radius: 50%;
+  background: black;
+}
+
+.pre-letter {
+  position: absolute;
+  top: 26%;
+  left: 26%;
+  width: 48%;
+  height: 48%;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--emblem) * 0.26);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: pre-pulse 2.4s ease-in-out infinite;
+}
+
+.pre-orbit {
+  position: absolute;
+  border: 1px dashed dimgray;
+  border-radius: 50%;
+  animation: pre-spin 22s linear infinite;
+}
+
+.pre-orbit-1 {
+  top: -12%;
+  left: -12%;
+  width: 124%;
+  height: 124%;
+}
+
+.pre-orbit-2 {
+  top: -24%;
+  left: -24%;
+  width: 148%;
+  height: 148%;
+  animation-duration: 34s;
+  animation-direction: reverse;
+}
+
+.pre-orbit i {
+  position: absolute;
+  top: -18px;
+  left: calc(50% - 18px);
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: black;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 1rem;
+  animation: pre-spin-back 22s linear infinite;
+  transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+.pre-orbit-2 i {
+  animation-duration: 34s;
+  animation-direction: reverse;
+  border-color: var(--accent2);
+  color: var(--accent2);
+}
+
+.pre-orbit i.second {
+  top: auto;
+  bottom: -18px;
+  border-color: var(--accent3);
+  color: var(--accent3);
+}
+
+.pre-orbit i.lit {
+  background: var(--accent);
+  border-color: white;
+  color: black;
+  box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent2);
+}
+
+/* ---------- name, tagline ---------- */
+.pre-name {
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.28em;
+  padding-left: 0.28em;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: pre-name-in 1.5s ease 0.25s backwards, pre-shine 6s linear infinite;
+}
+
+.pre-tagline {
+  margin-top: 0.6rem;
+  font-size: clamp(0.7rem, 1.6vw, 0.88rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: silver;
+  text-wrap: balance;
+  animation: pre-rise 1s ease 0.7s backwards;
+}
+
+/* ---------- percent + message ---------- */
+.pre-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  min-height: 2.4rem;
+  margin-top: 1.5rem;
+  animation: pre-rise 1s ease 0.9s backwards;
+}
+
+.pre-percent {
+  min-width: 4ch;
+  text-align: right;
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(90deg, var(--accent), var(--accent3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.pre-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-left: 0.9rem;
+  border-left: 1px solid dimgray;
+  font-size: 0.95rem;
+  color: gainsboro;
+}
+
+.pre-text i {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.pre-text.swap {
+  animation: pre-swap 0.5s ease;
+}
+
+/* ---------- the four modules ---------- */
+.pre-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  animation: pre-rise 1s ease 1.1s backwards;
+}
+
+.pre-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid dimgray;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  color: gray;
+  transition: border-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.pre-chip .pre-tick {
+  display: none;
+  color: springgreen;
+}
+
+.pre-chip.done {
+  border-color: var(--accent);
+  color: white;
+  box-shadow: 0 0 16px var(--accent2);
+  animation: pre-pop 0.5s ease;
+}
+
+.pre-chip.done .pre-tick {
+  display: inline;
+}
+
+/* ---------- the button ---------- */
+.pre-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  height: 5.2rem;
+  margin-top: 1.5rem;
+}
+
+.pre-enter {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.95rem 2.3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: black;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
+  background-size: 300% 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(22px) scale(0.85);
+  transition: opacity 0.6s ease 0.2s, transform 0.6s cubic-bezier(0.2, 1.4, 0.4, 1) 0.2s, box-shadow 0.4s ease;
+}
+
+#preloader.ready .pre-enter {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+  animation: pre-shine 4s linear infinite;
+}
+
+#preloader.ready .pre-enter:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 40px var(--accent2);
+  transition-delay: 0s;
+}
+
+#preloader.opening .pre-enter {
+  pointer-events: none;
+}
+
+.pre-enter:focus-visible,
+.pre-skip:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+
+.pre-enter i {
+  transition: transform 0.3s ease;
+}
+
+.pre-enter:hover i {
+  transform: translateX(6px);
+}
+
+.pre-enter::before,
+.pre-enter::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border: 2px solid var(--accent);
+  border-radius: 50px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#preloader.ready .pre-enter::before { animation: pre-ping 2.4s ease-out 1s infinite; }
+#preloader.ready .pre-enter::after  { animation: pre-ping 2.4s ease-out 2.2s infinite; }
+
+.pre-hint {
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: gray;
+  opacity: 0;
+  transition: opacity 0.6s ease 1s;
+}
+
+#preloader.ready .pre-hint {
+  opacity: 1;
+}
+
+.pre-hint kbd {
+  padding: 0.1rem 0.5rem;
+  border: 1px solid gray;
+  border-radius: 6px;
+  background: none;
+  color: silver;
+  font-family: inherit;
+  font-size: 0.72rem;
+}
+
+/* ---------- corner text + skip ---------- */
+.pre-corner {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: gray;
+  pointer-events: none;
+  animation: pre-rise 1s ease 1.3s backwards;
+}
+
+.pre-corner i:last-of-type {
+  color: var(--accent);
+}
+
+.pre-skip {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  z-index: 6;
+  padding: 0.4rem 1rem;
+  border: 1px solid dimgray;
+  border-radius: 50px;
+  background: transparent;
+  color: silver;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+  animation: pre-rise 1s ease 1.3s backwards;
+}
+
+.pre-skip:hover {
+  border-color: var(--accent);
+  color: white;
+}
+
+#preloader.opening .pre-corner,
+#preloader.opening .pre-skip {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* ---------- flash at the moment of opening ---------- */
+.pre-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at 50% 50%, white 0%, var(--accent) 20%, transparent 60%);
+}
+
+#preloader.opening .pre-flash {
+  animation: pre-flash 1.1s ease-out 0.35s forwards;
+}
+
+/* ---------- home page hero builds in after the doors open ---------- */
+body.intro .hello,
+body.intro .hero-role,
+body.intro .hero-bio,
+body.intro .hero-buttons {
+  animation: pre-rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+body.intro .hero-role    { animation-delay: 0.15s; }
+body.intro .hero-bio     { animation-delay: 0.3s; }
+body.intro .hero-buttons { animation-delay: 0.45s; }
+
+body.intro .portrait-wrap {
+  animation: pre-zoom 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s backwards;
+}
+
+/* ---------- keyframes ---------- */
+@keyframes pre-spin      { to { transform: rotate(360deg); } }
+@keyframes pre-spin-back { to { transform: rotate(-360deg); } }
+
+@keyframes pre-rise {
+  from { opacity: 0; transform: translateY(26px); }
+}
+
+@keyframes pre-zoom {
+  from { opacity: 0; transform: scale(0.7) rotate(-8deg); }
+}
+
+@keyframes pre-name-in {
+  from { opacity: 0; letter-spacing: 0.7em; filter: blur(12px); }
+}
+
+@keyframes pre-shine {
+  from { background-position: 0% 0; }
+  to   { background-position: 300% 0; }
+}
+
+@keyframes pre-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+
+@keyframes pre-swap {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+@keyframes pre-pop {
+  0%   { transform: scale(0.9); }
+  50%  { transform: scale(1.14); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pre-ping {
+  from { transform: scale(1); opacity: 0.9; }
+  to   { transform: scale(1.3, 1.8); opacity: 0; }
+}
+
+@keyframes pre-grid-pulse {
+  0%, 100% { opacity: 0.05; }
+  50%      { opacity: 0.11; }
+}
+
+@keyframes pre-flash {
+  0%   { opacity: 0;    transform: scale(0.4); }
+  55%  { opacity: 0.95; transform: scale(1.2); }
+  100% { opacity: 0;    transform: scale(1.8); }
+}
+
+/* ---------- small and short screens ---------- */
+@media (hover: none) {
+  .pre-hint { display: none; }
+}
+
+@media (max-height: 680px) {
+  .pre-chips { display: none; }
+}
+
+@media (max-height: 560px) {
+  .pre-tagline,
+  .pre-hint,
+  .pre-corner { display: none; }
+  .pre-action { height: 4rem; }
+}
+
+@media (max-width: 575px) {
+  .pre-corner { left: 16px; bottom: 16px; letter-spacing: 0.18em; font-size: 0.6rem; }
+  .pre-skip { right: 16px; bottom: 12px; }
+  .pre-text { padding-left: 0; border-left: none; }
+  .pre-tagline { letter-spacing: 0.14em; }
+}

@@ -1,0 +1,191 @@
+/* =========================================================
+   projects.css  -  only used by projects.html
+   The project cards scroll SIDEWAYS while you scroll down.
+   ========================================================= */
+
+
+.project-hero {
+  min-height: 90vh;
+}
+
+.terminal {
+  max-width: 620px;
+  margin: 2.5rem auto 0;
+  text-align: left;
+  font-family: "Courier New", monospace;
+}
+
+.terminal-top {
+  display: flex;
+  gap: 8px;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid dimgray;
+}
+
+.terminal-top span { width: 12px; height: 12px; border-radius: 50%; }
+.terminal-top span:nth-child(1) { background: crimson; }
+.terminal-top span:nth-child(2) { background: gold; }
+.terminal-top span:nth-child(3) { background: limegreen; }
+
+.terminal-body { padding: 1.4rem; color: white; min-height: 90px; font-size: 1.05rem; }
+.terminal-body .prompt { color: var(--accent); }
+.terminal-body .typing { color: white; }
+.terminal-body .cursor { color: var(--accent); animation: blink 1s steps(1) infinite; }
+
+
+
+.h-scroll {
+  position: relative;
+}
+
+.h-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.h-heading {
+  padding: 0 5vw;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.h-heading h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; margin: 0; }
+.h-count { font-size: 1.2rem; font-weight: 700; color: var(--accent); letter-spacing: 0.2em; }
+
+.h-track {
+  display: flex;
+  gap: 2.5rem;
+  padding: 0 5vw;
+  width: max-content;
+  will-change: transform;
+}
+
+.h-progress {
+  margin: 1.8rem 5vw 0;
+  height: 4px;
+  border-radius: 4px;
+  border: 1px solid dimgray;
+  overflow: hidden;
+}
+
+.h-progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+}
+
+
+.project-card {
+  position: relative;
+  width: min(440px, 82vw);
+  flex-shrink: 0;
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid dimgray;
+}
+
+.browser-bar .dot { width: 11px; height: 11px; border-radius: 50%; }
+.browser-bar .dot:nth-child(1) { background: crimson; }
+.browser-bar .dot:nth-child(2) { background: gold; }
+.browser-bar .dot:nth-child(3) { background: limegreen; }
+
+.browser-url {
+  flex: 1;
+  margin-left: 0.6rem;
+  padding: 0.15rem 0.8rem;
+  border: 1px solid dimgray;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  color: silver;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-shot {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(150deg, midnightblue, black 55%, var(--accent));
+}
+
+
+.project-shot .num {
+  font-size: 6rem;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--accent);
+  opacity: 0.6;
+}
+
+.project-shot img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s;
+}
+
+.project-card:hover .project-shot img { transform: scale(1.1); }
+
+.project-info { padding: 1.5rem; }
+.project-info h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.4rem; }
+.project-info p { font-size: 0.9rem; }
+
+.tech-chip {
+  display: inline-block;
+  margin: 0 0.4rem 0.5rem 0;
+  padding: 0.2rem 0.8rem;
+  border: 1px solid var(--accent2);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  color: var(--accent2);
+}
+
+.project-links { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 0.8rem; }
+.project-links .btn { padding: 0.5rem 1.3rem; font-size: 0.85rem; }
+
+
+.next-card {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 2rem;
+  min-height: 480px;
+}
+
+.next-card i { font-size: 3.4rem; color: var(--accent); animation: spin 4s linear infinite; display: inline-block; }
+.loading-bar { width: 200px; height: 6px; margin: 1.2rem auto 0; border: 1px solid dimgray; border-radius: 6px; overflow: hidden; }
+.loading-bar span { display: block; height: 100%; width: 40%; background: linear-gradient(90deg, var(--accent), var(--accent2)); animation: loading 2.2s ease-in-out infinite alternate; }
+
+@keyframes loading {
+  from { margin-left: 0; }
+  to   { margin-left: 60%; }
+}
+
+
+@media (max-width: 768px) {
+  .h-sticky { position: static; height: auto; padding: 60px 0; }
+  .h-track { flex-direction: column; width: auto; align-items: center; transform: none !important; }
+  .h-progress { display: none; }
+  .project-card { width: 90vw; }
+  .next-card { min-height: 300px; }
+}

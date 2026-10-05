@@ -1,0 +1,185 @@
+/* =========================================================
+   journey.css  -  only used by journey.html
+   ========================================================= */
+
+
+
+.journey-hero .page-hero-bg {
+  background-image: url("../images/hero/journey.jpg"), linear-gradient(135deg, indigo, black, deeppink);
+}
+
+.dream-text {
+  max-width: 760px;
+  margin: 1.8rem auto 0;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+  line-height: 1.7;
+  color: white;
+}
+
+
+.timeline-head { padding: 90px 0 40px; }
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+
+.timeline-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+}
+
+.line-track {
+  fill: none;
+  stroke: dimgray;
+  stroke-width: 3;
+  stroke-dasharray: 2 12;
+  stroke-linecap: round;
+}
+
+.line-main {
+  fill: none;
+  stroke: url(#lineGradient);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+
+.line-glow {
+  fill: none;
+  stroke: url(#lineGradient);
+  stroke-width: 16;
+  stroke-linecap: round;
+  filter: blur(9px);
+  opacity: 0.7;
+}
+
+.line-head {
+  fill: white;
+  filter: drop-shadow(0 0 10px white) drop-shadow(0 0 22px var(--accent));
+  animation: headPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes headPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+
+.milestone {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.m-year {
+  position: absolute;
+  top: -39px;
+  left: -39px;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: black;
+  border: 3px solid dimgray;
+  color: dimgray;
+  font-weight: 800;
+  font-size: 1rem;
+  transform: scale(0.6);
+  transition: 0.7s;
+  z-index: 2;
+}
+
+.m-card {
+  position: absolute;
+  top: -70px;
+  padding: 1.3rem 1.4rem;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  z-index: 2;
+}
+
+.milestone.left .m-card  { text-align: right; transform: translateX(-60px); }
+.milestone.right .m-card { transform: translateX(60px); }
+
+
+.milestone.active .m-year {
+  transform: scale(1);
+  color: black;
+  border-color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 25px var(--accent);
+}
+
+.milestone.active .m-card { opacity: 1; transform: none; }
+
+.m-tag {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.m-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; }
+.m-card p { font-size: 0.85rem; line-height: 1.6; margin: 0; }
+
+
+.milestone.dream .m-year { border-style: dashed; }
+.milestone.dream .m-tag { color: var(--accent3); }
+.milestone.dream .m-card { border-style: dashed; }
+
+
+.milestone.now .m-year::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: calc(100% + 18px);
+  height: calc(100% + 18px);
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  animation: ping 1.8s ease-out infinite;
+}
+
+@keyframes ping {
+  from { transform: scale(0.85); opacity: 1; }
+  to   { transform: scale(1.5);  opacity: 0; }
+}
+
+.timeline-end {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.timeline-end {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.timeline-end.show { opacity: 1; transform: none; }
+
+.timeline-end h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; }
+
+
+@media (max-width: 767px) {
+  .m-year { width: 56px; height: 56px; top: -28px; left: -28px; font-size: 0.72rem; }
+  .m-card { top: -40px; padding: 1rem; }
+  .milestone.left .m-card  { text-align: left; }
+  .milestone.left .m-card,
+  .milestone.right .m-card { transform: translateX(40px); }
+  .milestone.active .m-card { transform: none; }
+}

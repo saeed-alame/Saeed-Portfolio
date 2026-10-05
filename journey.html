@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Journey | Saeed Alame</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/journey.css">
+</head>
+
+<body data-theme="journey">
+   <script src="js/transition.js"></script>
+
+
+  <header id="site-header"></header>
+
+
+  
+  <section class="page-hero journey-hero">
+    
+    <div class="page-hero-bg" data-speed="0.25"></div>
+
+    <div class="container">
+      <p class="hello" style="color: var(--accent); letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600;">From there to here to everywhere</p>
+      <h1 class="page-title gradient-text">The Journey</h1>
+
+      
+      <p class="dream-text">
+        I started with curiosity and an internet connection. Today I'm building toward a future where I design the
+        systems that hold the cloud together, from Lebanon to the biggest teams in the world. Every line of code,
+        every late night and every goal I set is one more step on the road. Follow the line and see where it leads.
+      </p>
+    </div>
+
+    <a href="#timeline" class="scroll-hint"><i class="bi bi-chevron-double-down"></i>follow the line</a>
+  </section>
+
+
+  
+  <section id="timeline">
+
+    <div class="timeline-head text-center reveal">
+      <div class="container">
+        <h2 class="section-title"><small>Past &middot; Present &middot; Future</small>My <span class="gradient-text">Timeline</span></h2>
+        <p class="mx-auto" style="max-width: 520px;">Scroll slowly. The line grows as you go, and every curve holds a year.</p>
+      </div>
+    </div>
+
+    <div class="timeline" id="timeline-box">
+
+      <svg class="timeline-svg" id="timeline-svg">
+        <defs>
+          
+          <linearGradient id="lineGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1000">
+            <stop offset="0%"><animate attributeName="stop-color" values="hotpink;violet;gold;cyan;hotpink" dur="8s" repeatCount="indefinite"/></stop>
+            <stop offset="35%"><animate attributeName="stop-color" values="violet;gold;cyan;hotpink;violet" dur="8s" repeatCount="indefinite"/></stop>
+            <stop offset="70%"><animate attributeName="stop-color" values="gold;cyan;hotpink;violet;gold" dur="8s" repeatCount="indefinite"/></stop>
+            <stop offset="100%"><animate attributeName="stop-color" values="cyan;hotpink;violet;gold;cyan" dur="8s" repeatCount="indefinite"/></stop>
+          </linearGradient>
+        </defs>
+
+        <path id="line-track" class="line-track"></path>
+        <path id="line-glow" class="line-glow"></path>
+        <path id="line-main" class="line-main"></path>
+        <circle id="line-head" class="line-head" r="9"></circle>
+      </svg>
+
+
+      
+      <div class="milestone">
+        <div class="m-year">2019</div>
+        <div class="m-card glass">
+          <span class="m-tag"><i class="bi bi-translate"></i> The beginning</span>
+          <h3>The First Milestone</h3>
+          <p>Where curiosity became the first step toward who I am today.</p>
+        </div>
+      </div>
+
+      
+      <div class="milestone">
+        <div class="m-year">2022</div>
+        <div class="m-card glass">
+          <span class="m-tag"><i class="bi bi-award-fill"></i> School</span>
+          <h3>Finding My Path</h3>
+          <p>Learning, growing, &amp; discovering the things that truly inspired me.</p>
+        </div>
+      </div>
+
+      
+      <div class="milestone">
+        <div class="m-year">2024</div>
+        <div class="m-card glass">
+          <span class="m-tag"><i class="bi bi-star-fill"></i> Milestone</span>
+          <h3>Brevet: 18.15 / 20</h3>
+          <p>I closed one chapter with a score I'm proud of, and got ready for a bigger one.</p>
+        </div>
+      </div>
+
+      
+      <div class="milestone">
+        <div class="m-year">2026</div>
+        <div class="m-card glass">
+          <span class="m-tag"><i class="bi bi-code-square"></i> Community</span>
+          <h3>CodeBrave</h3>
+          <p>I joined the CodeBrave program to keep sharpening my skills.</p>
+        </div>
+      </div>
+
+      
+      <div class="milestone now">
+        <div class="m-year">2026</div>
+        <div class="m-card glass">
+          <span class="m-tag"><i class="bi bi-geo-alt-fill"></i> You are here</span>
+          <h3>Right here, right now</h3>
+          <p>Building this portfolio, applying to study Computer Science at LAU, and learning something new every day.</p>
+        </div>
+      </div>
+
+      
+      <div class="milestone dream">
+        <div class="m-year">2027</div>
+        <div class="m-card glass">
+          <span class="m-tag"><i class="bi bi-stars"></i> The plan</span>
+          <h3>Computer Science at LAU</h3>
+          <p>Years of algorithms, systems and late-night debugging: the foundation for everything after.</p>
+        </div>
+      </div>
+
+      
+      <div class="milestone dream">
+        <div class="m-year">2031</div>
+        <div class="m-card glass">
+          <span class="m-tag"><i class="bi bi-airplane-fill"></i> The leap</span>
+          <h3>Graduate study in the USA</h3>
+          <p>Taking my education overseas and learning from the people who built the modern internet.</p>
+        </div>
+      </div>
+
+      
+      <div class="milestone dream">
+        <div class="m-year">2034</div>
+        <div class="m-card glass">
+          <span class="m-tag"><i class="bi bi-cloud-fill"></i> The dream</span>
+          <h3>Cloud Architect</h3>
+          <p>Designing the systems that power the internet at a company like AWS, Google or Microsoft.</p>
+        </div>
+      </div>
+
+      <div class="timeline-end" id="timeline-end">
+        <h2 class="gradient-text">&hellip;and the story continues.</h2>
+      </div>
+
+    </div>
+  </section>
+
+
+  <footer id="site-footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/journey.js"></script>
+</body>
+</html>

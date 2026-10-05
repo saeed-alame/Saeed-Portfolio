@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trophies | Saeed Alame</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/trophies.css">
+</head>
+
+<body data-theme="trophies">
+   <script src="js/transition.js"></script>
+
+
+  <header id="site-header"></header>
+
+
+  
+  <section class="page-hero trophy-hero">
+    
+    <div class="page-hero-bg" data-speed="0.25"></div>
+
+    <div class="ps-symbols">
+      <span class="triangle">&#9651;</span>
+      <span class="circle">&#9675;</span>
+      <span class="cross">&#10005;</span>
+      <span class="square">&#9633;</span>
+    </div>
+
+    <div class="container">
+      <p class="hello" style="color: var(--accent); letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600;">PlayStation 5</p>
+      <h1 class="page-title gradient-text">Trophy Room</h1>
+      <p class="page-subtitle">My PlayStation journey, one platinum at a time. Every trophy is a story of patience, skill and way too many late nights.</p>
+      <a href="#profile" class="btn btn-glow mt-4"><i class="bi bi-trophy-fill me-2"></i>See my profile</a>
+    </div>
+
+    <a href="#profile" class="scroll-hint"><i class="bi bi-chevron-double-down"></i>scroll</a>
+  </section>
+
+
+  
+  <section class="section-pad" id="profile">
+    <div class="container">
+      <div class="psn-card glass reveal reveal-zoom">
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-4 text-center">
+            <div class="avatar-frame">
+              <div class="ring-spin"></div>
+              <div class="avatar">
+                <i class="bi bi-person-fill"></i>
+                
+                <img src="images/trophies/psn.jpeg" alt="PSN avatar" class="soft">
+              </div>
+            </div>
+            <div class="psn-name gradient-text">saeed-al-creeper</div>
+            <div class="psn-level">LEVEL <span class="counter" data-target="249">0</span></div>
+          </div>
+
+          <div class="col-lg-8">
+            
+            <div class="row g-3">
+              <div class="col-6 col-md-3"><div class="cup platinum"><i class="bi bi-trophy-fill"></i><strong><span class="counter" data-target="10">0</span></strong><span>Platinum</span></div></div>
+              <div class="col-6 col-md-3"><div class="cup gold"><i class="bi bi-trophy-fill"></i><strong><span class="counter" data-target="107">0</span></strong><span>Gold</span></div></div>
+              <div class="col-6 col-md-3"><div class="cup silver"><i class="bi bi-trophy-fill"></i><strong><span class="counter" data-target="256">0</span></strong><span>Silver</span></div></div>
+              <div class="col-6 col-md-3"><div class="cup bronze"><i class="bi bi-trophy-fill"></i><strong><span class="counter" data-target="1173">0</span></strong><span>Bronze</span></div></div>
+            </div>
+
+            <div class="game-percent mt-4"><span>Overall trophy progress</span><span>100%</span></div>
+            <div class="progress-line"><div class="progress-fill" data-value="100"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <section class="pb-5">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-6 col-md-3 reveal"><div class="mini-stat glass tilt"><i class="bi bi-gem"></i><strong class="gradient-text"><span class="counter" data-target="10">0</span></strong><span>Platinums</span></div></div>
+        <div class="col-6 col-md-3 reveal"><div class="mini-stat glass tilt"><i class="bi bi-check-circle-fill"></i><strong class="gradient-text"><span class="counter" data-target="67">0</span></strong><span>100% Completed</span></div></div>
+        <div class="col-6 col-md-3 reveal"><div class="mini-stat glass tilt"><i class="bi bi-hourglass-split"></i><strong class="gradient-text"><span class="counter" data-target="2">0</span></strong><span>In progress</span></div></div>
+        <div class="col-6 col-md-3 reveal"><div class="mini-stat glass tilt"><i class="bi bi-controller"></i><strong class="gradient-text"><span class="counter" data-target="324">0</span></strong><span>Games played</span></div></div>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <section class="section-pad" id="games">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2 class="section-title"><small>Completion status</small>My <span class="gradient-text">Games</span></h2>
+
+        <div class="mt-3">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="platinum">Platinum</button>
+          <button class="filter-btn" data-filter="completed">100% Complete</button>
+          <button class="filter-btn" data-filter="progress">In Progress</button>
+        </div>
+      </div>
+
+      <!-- TO ADD A GAME: copy one whole <div class="col-md-6 col-lg-4 game-item reveal"> block.
+           data-status can be: platinum, completed or progress.
+           Also change the ribbon word, the title, the percent and data-value. -->
+      <div class="row g-4 mt-2">
+
+        <div class="col-md-6 col-lg-4 game-item reveal" data-status="platinum">
+          <div class="game-card glass tilt">
+            <div class="game-cover">
+              <span class="game-ribbon platinum">Platinum</span>
+              <i class="bi bi-controller"></i>
+              
+              <img src="images/trophies/gowr.png" alt="God of War Ragnarok" class="soft">
+            </div>
+            <div class="game-body">
+              <h3>God of War Ragnarok</h3>
+              <span class="platform">PS5</span>
+              <div class="game-percent"><span>Completion</span><span>100%</span></div>
+              <div class="progress-line"><div class="progress-fill" data-value="100"></div></div>
+              <div class="game-cups">
+                <span class="p"><i class="bi bi-trophy-fill"></i>1</span>
+                <span class="g"><i class="bi bi-trophy-fill"></i>5</span>
+                <span class="s"><i class="bi bi-trophy-fill"></i>16</span>
+                <span class="b"><i class="bi bi-trophy-fill"></i>23</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 game-item reveal" data-status="platinum">
+          <div class="game-card glass tilt">
+            <div class="game-cover">
+              <span class="game-ribbon platinum">Platinum</span>
+              <i class="bi bi-controller"></i>
+              
+              <img src="images/trophies/smm2.jpg" alt="Game Title Two" class="soft">
+            </div>
+            <div class="game-body">
+              <h3>Marvel SpiderMan 2</h3>
+              <span class="platform">PS5</span>
+              <div class="game-percent"><span>Completion</span><span>100%</span></div>
+              <div class="progress-line"><div class="progress-fill" data-value="100"></div></div>
+              <div class="game-cups">
+                <span class="p"><i class="bi bi-trophy-fill"></i>1</span>
+                <span class="g"><i class="bi bi-trophy-fill"></i>2</span>
+                <span class="s"><i class="bi bi-trophy-fill"></i>17</span>
+                <span class="b"><i class="bi bi-trophy-fill"></i>22</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 game-item reveal" data-status="completed">
+          <div class="game-card glass tilt">
+            <div class="game-cover">
+              <span class="game-ribbon completed">100% Complete</span>
+              <i class="bi bi-controller"></i>
+              
+              <img src="images/trophies/kcd2.jpg" alt="Game Title Three" class="soft">
+            </div>
+            <div class="game-body">
+              <h3>Kingdom Come Deliverance 2</h3>
+              <span class="platform">PS5</span>
+              <div class="game-percent"><span>Completion</span><span>100%</span></div>
+              <div class="progress-line"><div class="progress-fill" data-value="100"></div></div>
+              <div class="game-cups">
+                <span class="p"><i class="bi bi-trophy-fill"></i>0</span>
+                <span class="g"><i class="bi bi-trophy-fill"></i>5</span>
+                <span class="s"><i class="bi bi-trophy-fill"></i>12</span>
+                <span class="b"><i class="bi bi-trophy-fill"></i>17</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 game-item reveal" data-status="completed">
+          <div class="game-card glass tilt">
+            <div class="game-cover">
+              <span class="game-ribbon completed">100% Complete</span>
+              <i class="bi bi-controller"></i>
+              
+              <img src="images/trophies/rdr.png" alt="Game Title Four" class="soft">
+            </div>
+            <div class="game-body">
+              <h3>Red Dead Redemption 2</h3>
+              <span class="platform">PS5</span>
+              <div class="game-percent"><span>Completion</span><span>100%</span></div>
+              <div class="progress-line"><div class="progress-fill" data-value="100"></div></div>
+              <div class="game-cups">
+                <span class="p"><i class="bi bi-trophy-fill"></i>0</span>
+                <span class="g"><i class="bi bi-trophy-fill"></i>9</span>
+                <span class="s"><i class="bi bi-trophy-fill"></i>15</span>
+                <span class="b"><i class="bi bi-trophy-fill"></i>24</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 game-item reveal" data-status="platinum">
+          <div class="game-card glass tilt">
+            <div class="game-cover">
+              <span class="game-ribbon progress">In Progress</span>
+              <i class="bi bi-controller"></i>
+              
+              <img src="images/trophies/mc.webp" alt="Game Title Five" class="soft">
+            </div>
+            <div class="game-body">
+              <h3>Minecraft</h3>
+              <span class="platform">PS5</span>
+              <div class="game-percent"><span>Completion</span><span>64%</span></div>
+              <div class="progress-line"><div class="progress-fill" data-value="64"></div></div>
+              <div class="game-cups">
+                <span class="p"><i class="bi bi-trophy-fill"></i>1</span>
+                <span class="g"><i class="bi bi-trophy-fill"></i>32</span>
+                <span class="s"><i class="bi bi-trophy-fill"></i>67</span>
+                <span class="b"><i class="bi bi-trophy-fill"></i>210</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 game-item reveal" data-status="progress">
+          <div class="game-card glass tilt">
+            <div class="game-cover">
+              <span class="game-ribbon progress">In Progress</span>
+              <i class="bi bi-controller"></i>
+              
+              <img src="images/trophies/sot.webp" alt="Game Title Six" class="soft">
+            </div>
+            <div class="game-body">
+              <h3>Sea of Thieves</h3>
+              <span class="platform">PS5</span>
+              <div class="game-percent"><span>Completion</span><span>32%</span></div>
+              <div class="progress-line"><div class="progress-fill" data-value="32"></div></div>
+              <div class="game-cups">
+                <span class="p"><i class="bi bi-trophy-fill"></i>0</span>
+                <span class="g"><i class="bi bi-trophy-fill"></i>20</span>
+                <span class="s"><i class="bi bi-trophy-fill"></i>43</span>
+                <span class="b"><i class="bi bi-trophy-fill"></i>152</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  
+  <section class="section-pad">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2 class="section-title"><small>Hall of fame</small>Platinum <span class="gradient-text">Wall</span></h2>
+        <p class="mx-auto" style="max-width: 560px;">Ultimate Platinum Games</p>
+      </div>
+
+      <div class="row g-4 mt-2">
+
+        <div class="col-6 col-md-3 reveal">
+          <div class="plat-frame">
+            <i class="bi bi-trophy-fill"></i>
+            <small>Platinum 1</small>
+            <img src="images/trophies/sky.jfif" alt="Platinum 1" class="soft">
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 reveal">
+          <div class="plat-frame">
+            <i class="bi bi-trophy-fill"></i>
+            <small>Platinum 2</small>
+            <img src="images/trophies/ter.jfif" alt="Platinum 2" class="soft">
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 reveal">
+          <div class="plat-frame">
+            <i class="bi bi-trophy-fill"></i>
+            <small>Platinum 3</small>
+            <img src="images/trophies/elden.jfif" alt="Platinum 3" class="soft">
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 reveal">
+          <div class="plat-frame">
+            <i class="bi bi-trophy-fill"></i>
+            <small>Platinum 4</small>
+            <img src="images/trophies/detr.jfif" alt="Platinum 4" class="soft">
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 reveal">
+          <div class="plat-frame">
+            <i class="bi bi-trophy-fill"></i>
+            <small>Platinum 5</small>
+            <img src="images/trophies/got.jfif" alt="Platinum 5" class="soft">
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 reveal">
+          <div class="plat-frame">
+            <i class="bi bi-trophy-fill"></i>
+            <small>Platinum 6</small>
+            <img src="images/trophies/horizon.jfif" alt="Platinum 6" class="soft">
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 reveal">
+          <div class="plat-frame">
+            <i class="bi bi-trophy-fill"></i>
+            <small>Platinum 7</small>
+            <img src="images/trophies/res.jfif" alt="Platinum 7" class="soft">
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 reveal">
+          <div class="plat-frame">
+            <i class="bi bi-trophy-fill"></i>
+            <small>Platinum 8</small>
+            <img src="images/trophies/tabs.jfif" alt="Platinum 8" class="soft">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  
+  <section class="pb-5">
+    <div class="container">
+      <div class="glass text-center p-5 reveal reveal-zoom">
+        <h2 class="fw-bold">Want to <span class="gradient-text">play</span> something?</h2>
+        <p class="mx-auto mb-4" style="max-width: 520px;">Take a break from trophies and try out my game.</p>
+        <a href="try-game.html" class="btn btn-glow"><i class="bi bi-controller me-2"></i>Try Out The Game</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/trophies.js"></script>
+</body>
+</html>

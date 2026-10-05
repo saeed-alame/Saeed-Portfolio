@@ -1,0 +1,275 @@
+/* =========================================================
+   trophies.css  -  used by trophies.html AND try-game.html
+   ========================================================= */
+
+
+
+.trophy-hero .page-hero-bg {
+  background-image: url("../images/hero/trophies.jpg"), linear-gradient(135deg, midnightblue, black, darkgoldenrod);
+}
+
+.game-hero .page-hero-bg {
+  background-image: url("../images/hero/game.jpg"), linear-gradient(135deg, darkred, black, indigo);
+}
+
+
+.ps-symbols span {
+  position: absolute;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  opacity: 0.35;
+  animation: float 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.ps-symbols .triangle { top: 18%; left: 8%;  color: mediumseagreen; }
+.ps-symbols .circle   { top: 25%; right: 9%; color: crimson;        animation-delay: -1.2s; }
+.ps-symbols .cross    { bottom: 22%; left: 12%; color: dodgerblue;  animation-delay: -2.4s; }
+.ps-symbols .square   { bottom: 18%; right: 12%; color: hotpink;    animation-delay: -3.6s; }
+
+
+.psn-card { padding: 2.2rem; }
+
+.avatar-frame {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.avatar-frame .ring-spin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent), var(--accent2), var(--accent3), var(--accent));
+  animation: spin 5s linear infinite;
+}
+
+.avatar-frame .avatar {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(145deg, midnightblue, black);
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  color: dimgray;
+}
+
+.avatar-frame .avatar img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.psn-name { font-size: 1.8rem; font-weight: 800; margin: 1rem 0 0.2rem; }
+.psn-level { color: var(--accent); font-weight: 600; letter-spacing: 0.1em; }
+
+.cup {
+  text-align: center;
+  padding: 1.2rem 0.6rem;
+  border: 1px solid dimgray;
+  border-radius: 1rem;
+  transition: 0.4s;
+}
+
+.cup:hover { transform: translateY(-6px); }
+.cup i { font-size: 2.2rem; display: block; }
+.cup strong { display: block; font-size: 2rem; font-weight: 800; line-height: 1.2; }
+.cup span { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: silver; }
+
+.cup.platinum i { color: powderblue; }
+.cup.platinum:hover { border-color: powderblue; }
+.cup.gold i     { color: gold; }
+.cup.gold:hover { border-color: gold; }
+.cup.silver i     { color: silver; }
+.cup.silver:hover { border-color: silver; }
+.cup.bronze i     { color: peru; }
+.cup.bronze:hover { border-color: peru; }
+
+
+.progress-line {
+  height: 10px;
+  border: 1px solid dimgray;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+  transition: width 1.8s ease;
+}
+
+
+.mini-stat { padding: 1.5rem 1rem; text-align: center; height: 100%; }
+.mini-stat i { font-size: 1.8rem; color: var(--accent); }
+.mini-stat strong { display: block; font-size: 2.2rem; font-weight: 800; line-height: 1.2; }
+.mini-stat span { font-size: 0.8rem; color: silver; letter-spacing: 0.1em; text-transform: uppercase; }
+
+
+.filter-btn {
+  margin: 0.3rem;
+  padding: 0.55rem 1.4rem;
+  border: 1px solid dimgray;
+  border-radius: 50px;
+  background: transparent;
+  color: lightgray;
+  font-weight: 500;
+  transition: 0.4s;
+}
+
+.filter-btn:hover { border-color: var(--accent); color: white; }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: black; font-weight: 700; }
+
+
+.game-item { transition: opacity 0.4s, transform 0.4s; }
+.game-item.hide { display: none; }
+
+.game-card { display: block; height: 100%; }
+
+.game-cover {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(160deg, midnightblue, black 60%, var(--accent));
+  display: grid;
+  place-items: center;
+  color: dimgray;
+  font-size: 3rem;
+}
+
+.game-cover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s;
+}
+
+.game-card:hover .game-cover img { transform: scale(1.12); }
+
+.game-ribbon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  background: black;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.game-ribbon.platinum  { border: 1px solid powderblue; color: powderblue; }
+.game-ribbon.completed { border: 1px solid limegreen;   color: limegreen; }
+.game-ribbon.progress  { border: 1px solid orange;      color: orange; }
+
+.game-body { padding: 1.4rem; }
+.game-body h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
+.game-body .platform { font-size: 0.78rem; color: var(--accent); letter-spacing: 0.1em; font-weight: 600; }
+.game-percent { display: flex; justify-content: space-between; font-size: 0.8rem; color: silver; margin: 1rem 0 0.4rem; }
+.game-cups { margin-top: 1rem; display: flex; gap: 1rem; font-size: 0.85rem; color: lightgray; }
+.game-cups i { margin-right: 0.3rem; }
+.game-cups .p { color: powderblue; }
+.game-cups .g { color: gold; }
+.game-cups .s { color: silver; }
+.game-cups .b { color: peru; }
+
+
+.plat-frame {
+  position: relative;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 2px dashed dimgray;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  color: powderblue;
+  font-size: 2.4rem;
+  transition: 0.5s;
+}
+
+.plat-frame:hover { border-color: powderblue; transform: rotate(-3deg) scale(1.06); }
+
+.plat-frame img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plat-frame small {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.65rem;
+  color: silver;
+}
+
+
+.game-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+
+.game-frame .corner {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--accent);
+  z-index: 3;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.corner.tl { top: 12px;    left: 12px;  border-right: none; border-bottom: none; }
+.corner.tr { top: 12px;    right: 12px; border-left: none;  border-bottom: none; }
+.corner.bl { bottom: 12px; left: 12px;  border-right: none; border-top: none; }
+.corner.br { bottom: 12px; right: 12px; border-left: none;  border-top: none; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+.game-frame iframe,
+.game-frame canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.game-placeholder i { font-size: 4rem; color: var(--accent); animation: float 3s ease-in-out infinite; display: inline-block; }
+
+.how-card { padding: 1.8rem; height: 100%; text-align: center; }
+.how-card .step { font-size: 2.6rem; font-weight: 800; color: transparent; -webkit-text-stroke: 1px var(--accent); }

@@ -1,0 +1,75 @@
+/* =========================================================
+   about.css  -  only used by about.html
+   ========================================================= */
+
+.about-hero { min-height: 80vh; }
+
+.story-card { padding: 2.2rem; height: 100%; }
+
+.fact-list { list-style: none; margin: 0; padding: 0; }
+
+.fact-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid dimgray;
+}
+
+.fact-list li:last-child { border-bottom: none; }
+
+.fact-list i {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.fact-list small { display: block; color: silver; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.fact-list strong { font-weight: 600; }
+
+.drive-card { padding: 2.2rem 1.6rem; text-align: center; height: 100%; }
+
+.drive-card i {
+  display: inline-block;
+  font-size: 3rem;
+  color: var(--accent);
+  transition: 0.5s;
+}
+
+.drive-card:hover i { transform: translateY(-8px) scale(1.2); color: var(--accent3); }
+.drive-card h3 { font-size: 1.3rem; font-weight: 700; margin: 1rem 0 0.6rem; }
+.drive-card p { font-size: 0.9rem; margin: 0; }
+
+.beyond-card {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.8rem;
+  color: white;
+  height: 100%;
+}
+
+.beyond-card:hover { color: white; }
+
+.beyond-card .big {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: black;
+  font-size: 1.8rem;
+  transition: 0.5s;
+}
+
+.beyond-card:hover .big { transform: rotate(360deg) scale(1.1); }
+.beyond-card h3 { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.3rem; }
+.beyond-card p { margin: 0; font-size: 0.88rem; }

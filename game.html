@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBrave Pixart Game</title>
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <h1>CodeBrave Pixart Game</h1>
+    <a href="try-game.html" class="gb">Go Back</a>
+    <p>Select a color from the palette and click the matching numbers.</p>
+    <div onclick="choose('black',this)" class="color" style="background-color:black;">1</div>
+    <div onclick="choose('white',this)" class="color" style="background-color:white;color: black;">2</div>
+    <div onclick="choose('red',this)" class="color" style="background-color:red;">3</div>
+    <div onclick="choose('orange',this)" class="color" style="background-color:orange;">4</div>
+    <div onclick="choose('yellow',this)" class="color" style="background-color:yellow;">5</div>
+    <div onclick="choose('green',this)" class="color" style="background-color:green;">6</div>
+    <div onclick="choose('cyan',this)" class="color" style="background-color:cyan;">7</div>
+    <div onclick="choose('blue',this)" class="color" style="background-color:blue;">8</div>
+    <div onclick="choose('indigo',this)" class="color" style="background-color:indigo;">9</div>
+    <div onclick="choose('violet',this)" class="color" style="background-color:violet;">10</div>
+    <div onclick="choose('pink',this)" class="color" style="background-color:pink;">11</div>
+    <hr>
+    <button onclick="preview()">Show Preview</button>
+    <div id="art"></div>
+    <hr>
+    <footer>CodeBrave</footer>
+    <script src="js/game.js"></script>
+</body>
+</html>
